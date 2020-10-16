@@ -1,11 +1,5 @@
-//엄격한 코드 검사
+//집가서 한번 다시 해보기
 
-
-//sangwon chul
-//yoon - kim
-
-//SCSCSCSCSCSCSCSC
-//asdasdasd
 'use strict';
 /************* include library **************/
 var express = require('express');
