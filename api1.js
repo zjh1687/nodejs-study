@@ -78,7 +78,7 @@ api.get('/sensor', (req, res, next) => {
 
 
 api.post('/sensor', (req, res, next) => {
-    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ('"+ req.body.sensor_type +"', "+ req.body.sensor_value +", '"+ req.body.sensor_usr_id +"', now() , now()) ";
+    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ('"+ req.body.sensor_type +"', "+ req.body.sensor_value +", '"+ req.body.sensor_user +"', now() ) ";
     console.log(sql);
     dbconnection.connect();
     console.log("init start");
