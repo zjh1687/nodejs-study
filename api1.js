@@ -13,7 +13,8 @@ var api     = express();
 var db      = require('./db');
 var mysql = require('mysql');
 
-//55656
+//시작할때 db.js 새로 만들어서 복붙하기
+
 var dbInfo = {
 
     host: 'ls-712a3de0f216372c332622b5ed5c6f22fe2f67bd.cu0xyssgzj43.ap-northeast-2.rds.amazonaws.com',
