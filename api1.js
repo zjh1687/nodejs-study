@@ -15,12 +15,14 @@ var mysql = require('mysql');
 
 //시작할때 db.js 새로 만들어서 복붙하기
 
+api.get('/', (req, res, next) => {
+
 var dbInfo = {
 
     host: 'ls-712a3de0f216372c332622b5ed5c6f22fe2f67bd.cu0xyssgzj43.ap-northeast-2.rds.amazonaws.com',
     port: '3306',
     user: 'dbmasteruser',
-    password:'zEnILaK%Ua`M48R!d]-6[ErR2tZ|kGU',
+    password:'buackr!!##',
     database: 'BU',
     multipleStatements: true
 }
@@ -40,7 +42,7 @@ var connection = mysql.createConnection({
         console.log(results);
     });
     connection.end();
-    res.send("Welcom is API Fucntion";)
+    res.send("Welcom is API Fucntion")
 });
 /************* Routing **************/
 //api Index
