@@ -1,11 +1,5 @@
-//엄격한 코드 검사
+//집가서 한번 다시 해보기
 
-
-//sangwon chul
-//yoon - kim
-
-//SCSCSCSCSCSCSCSC
-//asdasdasd
 'use strict';
 /************* include library **************/
 var express = require('express');
@@ -78,7 +72,7 @@ api.get('/sensor', (req, res, next) => {
 
 
 api.post('/sensor', (req, res, next) => {
-    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ('"+ req.body.sensor_type +"', "+ req.body.sensor_value +", '"+ req.body.sensor_usr_id +"', now() , now()) ";
+    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ('"+ req.body.sensor_type +"', "+ req.body.sensor_value +", '"+ req.body.sensor_user +"', now() ) ";
     console.log(sql);
     dbconnection.connect();
     console.log("init start");
