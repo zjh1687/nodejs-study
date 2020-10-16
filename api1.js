@@ -25,17 +25,23 @@ var dbInfo = {
     multipleStatements: true
 }
 
-
-
-/* var dbconnection = mysql.createConnection({
+var connection = mysql.createConnection({
     host : dbInfo.host,
     user : dbInfo.user,
     password : dbInfo.password,
     database : dbInfo.database
-}); */
+});
+    connection.connect();
+    connection.query('SELECT * FROM sensor_data',function(error, results, fields){
+        if (error) {
+            console.log(error);
+        }
 
-
-
+        console.log(results);
+    });
+    connection.end();
+    res.send("Welcom is API Fucntion";)
+});
 /************* Routing **************/
 //api Index
 api.get('/', (req, res, next) => {
@@ -69,8 +75,8 @@ api.get('/sensor', (req, res, next) => {
 });
 
 
-/* api.post('/sensor', (req, res, next) => {
-    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_usr_id, ins_date, upd_date ) values ('"+ req.body.sensor_type +"', "+ req.body.sensor_value +", '"+ req.body.sensor_usr_id +"', now() , now()) ";
+api.post('/sensor', (req, res, next) => {
+    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ('"+ req.body.sensor_type +"', "+ req.body.sensor_value +", '"+ req.body.sensor_usr_id +"', now() , now()) ";
     console.log(sql);
     dbconnection.connect();
     console.log("init start");
@@ -85,7 +91,7 @@ api.get('/sensor', (req, res, next) => {
     //req.body.sensorType
     //req.body.sensorValue
 
-}); */
+});
 
 api.post('/insSensor', (req, res, next) => {
 
@@ -93,8 +99,8 @@ api.post('/insSensor', (req, res, next) => {
     var sensorValue = req.body.sensorValue;//"";
     var userId = req.body.userId; //"";
     
-    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_usr_id, ins_date, upd_date ) values ";
-    sql += " ('"+ sensorType +"', "+ sensorValue +", '"+ userId +"', now() , now()) ";
+    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date, upd_date ) values ";
+    sql += " ('"+ sensorType +"', "+ sensorValue +", '"+ userId +"', now()) ";
     console.log(sql);
     dbconnection.connect();
 
