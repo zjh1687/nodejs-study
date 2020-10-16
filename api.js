@@ -1,19 +1,12 @@
 //엄격한 코드 검사
 
-//asdasdasd
-//sangwon chul
-//asdasdasdasd
-//asdasdasd
-//SCSCSCSCSCSCSCSC
-//asdasdasd
 'use strict';
 /************* include library **************/
 var express = require('express');
 var api     = express();
-//var db      = require('./db');
-var mysql = require('mysql');
+var db      = require('./db');
 
-  var dbInfo = {
+ /*  var dbInfo = {
 
     host: 'ls-712a3de0f216372c332622b5ed5c6f22fe2f67bd.cu0xyssgzj43.ap-northeast-2.rds.amazonaws.com',
     port: '3306',
@@ -22,25 +15,25 @@ var mysql = require('mysql');
     database: 'BU',
     multipleStatements: true
 }
- 
+  */
 
 
- var dbconnection = mysql.createConnection({
-    host : dbInfo.host,
-    user : dbInfo.user,
-    password : dbInfo.password,
-    database : dbInfo.database
+ /*  var db = mysql.createConnection({
+    host : db.host,
+    user : db.user,
+    password : db.password,
+    database : db.database
 }); 
-
+  */
 
 
 /************* Routing **************/
 //api Index
 api.get('/', (req, res, next) => {
-    dbconnection.connect();
+    //db.connect();
    
     console.log("init start");
-    dbconnection.query(' select * from sensor_data ' , function(error, results, fields){
+    db.query(' select * from sensor_data ' , function(error, results, fields){
         if (error) {
             console.log(error);
         }
@@ -58,7 +51,7 @@ api.get('/', (req, res, next) => {
 api.get('/sensor', (req, res, next) => {
     
     console.log("init start");
-    dbconnection.query(' select * from sensor_data ' , function(error, results, fields){
+    db.query(' select * from sensor_data ' , function(error, results, fields){
 
         console.log(results);
     })
@@ -70,9 +63,9 @@ api.get('/sensor', (req, res, next) => {
  api.post('/sensor', (req, res, next) => {
     var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ('"+ req.body.sensor_type +"', "+ req.body.sensor_value +", '"+ req.body.sensor_user +"', now()) ";
     console.log(sql);
-    dbconnection.connect();
+    db.connect();
     console.log("init start");
-    dbconnection.query(sql , function(error, results, fields){
+    db.query(sql , function(error, results, fields){
 
         console.log(error);
         console.log(results);
@@ -94,10 +87,10 @@ api.post('/insSensor', (req, res, next) => {
     var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ";
     sql += " ('"+ sensorType +"', "+ sensorValue +", '"+ userId +"', now()) ";
     console.log(sql);
-    dbconnection.connect();
+    db.connect();
 
     console.log("init start");
-    dbconnection.query(sql , function(error, results, fields){
+    db.query(sql , function(error, results, fields){
 
         console.log(error);
         console.log(results);
