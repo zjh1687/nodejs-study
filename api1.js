@@ -1,4 +1,4 @@
-//집가서 한번 다시 해보기
+
 
 'use strict';
 /************* include library **************/
@@ -7,7 +7,6 @@ var api     = express();
 var db      = require('./db');
 var mysql = require('mysql');
 
-//시작할때 db.js 새로 만들어서 복붙하기
 
 api.get('/', (req, res, next) => {
 
@@ -35,6 +34,7 @@ var connection = mysql.createConnection({
 
         console.log(results);
     });
+
     connection.end();
     res.send("Welcom is API Fucntion")
 });
