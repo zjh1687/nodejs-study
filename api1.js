@@ -33,6 +33,7 @@ connection.query('SELECT * FROM sensor_data',function(error, results, fields){
         console.log(error);
     }
 
+    
     console.log(results);
     res.send(results);
 });
