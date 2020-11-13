@@ -26,7 +26,7 @@ var connection = mysql.createConnection({
     password : dbInfo.password,
     database : dbInfo.database
 });
-
+//
 connection.connect();
 connection.query('SELECT * FROM sensor_data',function(error, results, fields){
     if (error) {
