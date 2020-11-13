@@ -60,7 +60,7 @@ api.get('/sensor', (req, res, next) => {
     })
 
     res.send("Welcome is API Fucntion"+results);
-    res.send(results);
+    
 });
 
 

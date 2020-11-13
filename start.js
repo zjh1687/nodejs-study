@@ -13,7 +13,7 @@ const serverPort = 80;
 server.use('/',            require('./server'));
 server.use('/api',         require('./api')); //승철
 server.use('/api1',         require('./api1')); //상원
-
+server.use('/client1',       require('./client1'));
 
 /************* Running server **************/
 const httpServer = http.createServer(server);
