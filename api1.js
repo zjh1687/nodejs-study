@@ -35,6 +35,7 @@ var connection = mysql.createConnection({
 
         console.log(results);
     });
+    
     connection.end();
     res.send("Welcom is API Fucntion")
 });
