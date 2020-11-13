@@ -6,7 +6,8 @@ var express = require('express');
 var api     = express();
 var db      = require('./db');
 
- /*  var dbInfo = {
+ /*
+ var dbInfo = {
 
     host: 'ls-712a3de0f216372c332622b5ed5c6f22fe2f67bd.cu0xyssgzj43.ap-northeast-2.rds.amazonaws.com',
     port: '3306',
@@ -15,16 +16,16 @@ var db      = require('./db');
     database: 'BU',
     multipleStatements: true
 }
-  */
+*/
 
-
- /*  var db = mysql.createConnection({
+/*
+   var db = mysql.createConnection({
     host : db.host,
     user : db.user,
     password : db.password,
     database : db.database
 }); 
-  */
+*/
 
 
 /************* Routing **************/
@@ -59,7 +60,6 @@ api.get('/sensor', (req, res, next) => {
         res.send(results);
     })
 
-    res.send("Welcome is API Fucntion"+results);
     res.send(results);
 });
 

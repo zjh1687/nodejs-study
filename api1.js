@@ -26,18 +26,23 @@ var connection = mysql.createConnection({
     password : dbInfo.password,
     database : dbInfo.database
 });
-    connection.connect();
-    connection.query('SELECT * FROM sensor_data',function(error, results, fields){
-        if (error) {
-            console.log(error);
-        }
 
-        console.log(results);
-    });
+connection.connect();
+connection.query('SELECT * FROM sensor_data',function(error, results, fields){
+    if (error) {
+        console.log(error);
+    }
 
-    connection.end();
-    res.send("Welcom is API Fucntion")
+    console.log(results);
+    res.send(results);
 });
+
+connection.end();
+
+});
+    
+
+
 /************* Routing **************/
 //api Index
 api.get('/', (req, res, next) => {
@@ -50,11 +55,11 @@ api.get('/', (req, res, next) => {
         }
 
         console.log(results);
+        res.send(results);
 
     });
 
-    
-    res.send("Welcome is API Fucntion");
+
 });
 
 /************* Routing **************/
@@ -65,9 +70,10 @@ api.get('/sensor', (req, res, next) => {
     db.query(' select * from sensor_data ' , function(error, results, fields){
 
         console.log(results);
+        res.send(results);
     })
 
-    res.send("Welcome is API Fucntion");
+    res.send(results);
 });
 
 
