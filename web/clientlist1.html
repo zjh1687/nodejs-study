@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Sensor Data List </title>
+    </head>
+    <body>
+        <ul>
+        
+
+            <%=data.length%>
+            <table cellspacing="0" cellpadding="0" border="0">
+            
+            <% for ( var i = 0; i < data.length; i++){%>
+                    <%= data[i].idx%>
+                    <%= data[i].sensor_type%>
+                    <%= data[i].sensor_value%>
+                    <%= data[i].ins_date%>
+                    <%= data[i].sensor_user%>
+                    <br />
+            <% } %>
+        </ul>
+        
+        
+
+        
+        여기인가요?
+    </body>
+</html>
