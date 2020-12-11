@@ -43,14 +43,17 @@ server.get('/study', (req, res, next) => {
         age : 5
     }
 
-    if(req.query.id !== null && req.query.id !== undefined){
-        student.id = req.query.id;
+    if(req.query.sensor_type !== null && req.query.sensor_type !== undefined){
+        student.sensor_type = req.query.sensor_type;
     }
-    if(req.query.name !== null && req.query.name !== undefined){
-        student.name = req.query.name;
+    if(req.query.sensor_value !== null && req.query.sensor_value !== undefined){
+        student.sensor_value = req.query.sensor_value;
     }
-    if(req.query.age !== null && req.query.age !== undefined){
-        student.age = req.query.age;
+    if(req.query.ins_date !== null && req.query.ins_date !== undefined){
+        student.ins_date = req.query.ins_date;
+    }
+    if(req.query.mbr_id !== null && req.query.mbr_id !== undefined){
+        student.mbr_id = req.query.mbr_id;
     }
     console.log(student);
     res.render("iWillStudy.html", student);

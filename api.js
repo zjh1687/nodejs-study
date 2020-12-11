@@ -63,18 +63,19 @@ api.get('/sensor', (req, res, next) => {
 });
 
 
- api.post('/sensor', (req, res, next) => {
-    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ('"+ req.body.sensor_type +"', "+ req.body.sensor_value +", '"+ req.body.sensor_user +"', now()) ";
+
+ api.get('/inSsensor', (req, res, next) => {
+
+    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ('"+ req.query.sensorType +"', "+ req.query.sensorVal +", '"+ req.query.userId +"', now()) ";
     console.log(sql);
-    db.connect();
     console.log("init start");
-    db.query(sql , function(error, results, fields){
+     db.query(sql , function(error, results, fields){
 
-        console.log(error);
-        console.log(results);
+         console.log(error);
+         console.log(results);
         res.send(results);
-    })
-
+     })
+     
     //req.body.sensorIdx
     //req.body.sensorType
     //req.body.sensorValue
@@ -90,12 +91,12 @@ api.post('/insSensor', (req, res, next) => {
     var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ";
     sql += " ('"+ sensorType +"', "+ sensorValue +", '"+ userId +"', now()) ";
     console.log(sql);
-    db.connect();
+     db.connect();
 
     console.log("init start");
     db.query(sql , function(error, results, fields){
 
-        console.log(error);
+        //console.log(error);
         console.log(results);
         res.send(results);
     })
