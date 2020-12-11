@@ -63,10 +63,9 @@ api.get('/sensor', (req, res, next) => {
 });
 
 
-
  api.get('/inSsensor', (req, res, next) => {
 
-    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ('"+ req.query.sensorType +"', "+ req.query.sensorVal +", '"+ req.query.userId +"', now()) ";
+    var sql = " insert into sensor_data (sensor_type, sensor_value, sensor_user, ins_date) values ('"+ req.query.sensor_type +"', "+ req.query.sensor_value +", '"+ req.query.sensor_user +"', now()) ";
     console.log(sql);
     console.log("init start");
      db.query(sql , function(error, results, fields){

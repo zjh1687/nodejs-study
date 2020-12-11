@@ -22,7 +22,7 @@ cron.schedule('*/5 * * * * *', () =>{
     var sensorVal =90;
     var userId='20151417';
 
-    axios.get('http://localhost:3000/api/inSsenor?sensor_type='+sensorType+'&sensor_value='+sensorVal+'&sensor_user='+userId).then((Response)=>{
+    axios.get('http://localhost:3000/api/inSsensor?sensor_type='+sensorType+'&sensor_value='+sensorVal+'&sensor_user='+userId).then((Response)=>{
 }).catch((error)=>{
     console.log(error);
 });
